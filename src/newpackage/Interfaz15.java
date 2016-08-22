@@ -5,6 +5,8 @@
  */
 package newpackage;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jesus
@@ -27,21 +29,114 @@ public class Interfaz15 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        cmdCalcular = new javax.swing.JButton();
+        cmdBorrar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtPres = new javax.swing.JTextField();
+        txtValor = new javax.swing.JTextField();
+        txtCe = new javax.swing.JTextField();
+        txtCo = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setFont(new java.awt.Font("Swis721 LtEx BT", 0, 18)); // NOI18N
+        jLabel7.setText("BANK");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 140, 20));
+
+        jLabel1.setFont(new java.awt.Font("Rage Italic", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setText("Saravia");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 210, 50));
+
+        cmdCalcular.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        cmdCalcular.setForeground(new java.awt.Color(0, 153, 0));
+        cmdCalcular.setText("Calcular");
+        cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCalcularActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 170, 90, 40));
+
+        cmdBorrar.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        cmdBorrar.setForeground(new java.awt.Color(102, 0, 0));
+        cmdBorrar.setText("Borrar");
+        jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        jLabel2.setText("Valor del prestamos");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        jLabel3.setText("Total a pagar");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        jLabel4.setText("Cuotas especiales");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+
+        txtPres.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        jPanel1.add(txtPres, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 80, -1));
+
+        txtValor.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        jPanel1.add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 80, -1));
+
+        txtCe.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        jPanel1.add(txtCe, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 80, -1));
+
+        txtCo.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        jPanel1.add(txtCo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 80, -1));
+
+        jLabel5.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        jLabel5.setText("Cuotas ordinarias");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+        String res1, res2, res3;
+        double interes,cordinaria,cespecial,vtotal,prestado;
+        if (txtPres.getText().trim().isEmpty() ){
+            JOptionPane.showMessageDialog(this,"Por favor digiete La cantida de peliculas","Error",JOptionPane.ERROR_MESSAGE);
+            txtPres.requestFocusInWindow();
+        }else{try{
+          prestado= Double.parseDouble(txtPres.getText());  
+            interes = (prestado*24)/100;  
+        vtotal=prestado+interes;
+        cordinaria=(vtotal/2)/20;
+        cespecial=(vtotal/2)/4;
+         res1=String.valueOf(vtotal);
+          res2=String.valueOf(cordinaria);
+           res3=String.valueOf(cespecial);
+           txtCe.setText(res3);
+           txtCo.setText(res2);
+           txtValor.setText(res1);     
+           } catch (Exception e){
+               JOptionPane.showMessageDialog(this,"Ingrese numero valido","Error", JOptionPane.ERROR_MESSAGE);
+            txtPres.requestFocusInWindow();
+           }
+        }
+    }//GEN-LAST:event_cmdCalcularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +174,18 @@ public class Interfaz15 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdBorrar;
+    private javax.swing.JButton cmdCalcular;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtCe;
+    private javax.swing.JTextField txtCo;
+    private javax.swing.JTextField txtPres;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }
