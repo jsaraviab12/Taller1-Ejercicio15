@@ -89,15 +89,35 @@ public class Interfaz15 extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
         txtPres.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        txtPres.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPresKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtPres, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 80, -1));
 
         txtValor.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        txtValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtValorKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 80, -1));
 
         txtCe.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        txtCe.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCeKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtCe, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 80, -1));
 
         txtCo.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        txtCo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCoKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtCo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 80, -1));
 
         jLabel5.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
@@ -124,7 +144,8 @@ public class Interfaz15 extends javax.swing.JFrame {
         if (txtPres.getText().trim().isEmpty() ){
             JOptionPane.showMessageDialog(this,"Por favor digiete La cantida de peliculas","Error",JOptionPane.ERROR_MESSAGE);
             txtPres.requestFocusInWindow();
-        }else{try{
+        }else{
+            try{
           prestado= Double.parseDouble(txtPres.getText());  
             interes = (prestado*24)/100;  
         vtotal=prestado+interes;
@@ -150,6 +171,43 @@ public class Interfaz15 extends javax.swing.JFrame {
        txtValor.setText("");
        txtPres.requestFocusInWindow();
     }//GEN-LAST:event_cmdBorrarActionPerformed
+
+    private void txtPresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPresKeyTyped
+        char c=evt.getKeyChar();
+             
+         
+          if(!Character.isDigit(evt.getKeyChar())){ 
+              getToolkit().beep(); 
+               
+              evt.consume();
+          }
+    }//GEN-LAST:event_txtPresKeyTyped
+
+    private void txtValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValorKeyTyped
+          char c=evt.getKeyChar();
+
+        getToolkit().beep();
+
+        evt.consume();
+                    
+    }//GEN-LAST:event_txtValorKeyTyped
+
+    private void txtCeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCeKeyTyped
+     char c=evt.getKeyChar();
+
+        getToolkit().beep();
+
+        evt.consume();
+    }//GEN-LAST:event_txtCeKeyTyped
+
+    private void txtCoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCoKeyTyped
+        char c=evt.getKeyChar();
+
+        getToolkit().beep();
+
+        evt.consume();
+
+    }//GEN-LAST:event_txtCoKeyTyped
 
     /**
      * @param args the command line arguments
